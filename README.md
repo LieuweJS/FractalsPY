@@ -1,5 +1,5 @@
 # FractalsPY
 
-Fractals visualised in python.
+Fractals visualized in python.
 
 May 2019.
