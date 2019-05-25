@@ -1,7 +1,9 @@
 import pygame as pg
-from numpy import complex, array
 import colorsys
+
+from numpy import complex, array
 from numpy import interp
+
 
 width = 400
 height = int(width/2)
@@ -11,9 +13,11 @@ yMove = height
 prevPressed = 0
 pressStarted = 0
 iterations = 60
+
 def rgb_conv(i):
     color = 255 * array(colorsys.hsv_to_rgb(i / 255.0, 1.0, 1.0))
     return tuple(color.astype(int))
+
 def mandelbrot(x,y):
     c0 = complex((x-width+xMove), (y-height+yMove)) / zoom
     c = 0
@@ -22,9 +26,11 @@ def mandelbrot(x,y):
             return rgb_conv(i)
         c = c * c + c0
     return (0, 0, 0)
+
 pg.init()
 canvas = pg.display.set_mode((width, height))
 update = 1
+
 while True:
     ev = pg.event.poll()
     if ev.type == pg.QUIT:
