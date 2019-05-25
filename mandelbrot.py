@@ -1,8 +1,7 @@
 import pygame as pg
 import colorsys
 
-from numpy import complex, array
-from numpy import interp
+from numpy import complex, array, interp
 
 
 width = 400
