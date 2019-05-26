@@ -9,7 +9,7 @@ height = int(width/2)
 zoom = 1
 xMove = width
 yMove = height
-iterations = 120
+iterations = 10
 def rgb_conv(i):
     color = 255 * array(colorsys.hsv_to_rgb(i / 255.0, 1.0, 1.0))
     return tuple(color.astype(int))
@@ -26,6 +26,7 @@ pg.init()
 canvas = pg.display.set_mode((width, height))
 
 def reRender():
+    #print('zoom: ', zoom)
     for y in range(height):
         for x in range(width):
             color = mandelbrot((x - (0.75 * width)) / (width / 4), (y - (width / 4)) / (width / 4))
@@ -50,7 +51,10 @@ while True:
             zoom += zoomSpeed
             reRender()
         elif ev.button == 5:
-            zoom -= zoomSpeed
+            if zoom <= 1:
+                zoom -= 0.1
+            else:
+                zoom -= zoomSpeed
             reRender()
             #zoom out
     pg.draw.rect(canvas, (0,255,0), (width/2,1,1,height))
