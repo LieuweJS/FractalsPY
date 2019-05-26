@@ -47,7 +47,6 @@ while True:
         reRender()
     elif ev.type == pg.MOUSEBUTTONDOWN:
         if ev.button == 4:
-            #zoom in
             zoom += zoomSpeed
             reRender()
         elif ev.button == 5:
@@ -56,7 +55,6 @@ while True:
             else:
                 zoom -= zoomSpeed
             reRender()
-            #zoom out
     pg.draw.rect(canvas, (0,255,0), (width/2,1,1,height))
     pg.draw.rect(canvas, (0,255,0), (1,height/2,width,1))
     pg.display.flip()
