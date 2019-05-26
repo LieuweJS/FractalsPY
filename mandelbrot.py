@@ -4,7 +4,7 @@ import colorsys
 from numpy import interp
 
 width = 400
-zoomSpeed = 2
+zoomSpeed = 1
 height = int(width/2)
 zoom = 1
 xMove = width
@@ -51,7 +51,7 @@ while True:
             reRender()
         elif ev.button == 5:
             if zoom <= 1:
-                zoom -= 0.1
+                zoom -= zoomSpeed / 5
             else:
                 zoom -= zoomSpeed
             reRender()
