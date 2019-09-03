@@ -10,13 +10,11 @@ height = int(width/2)
 zoom = 1
 xMove = width
 yMove = height
- patch-1
 prevPressed = 0
 pressStarted = 0
 iterations = 60
 
 iterations = 10
- master
 def rgb_conv(i):
     color = 255 * array(colorsys.hsv_to_rgb(i / 255.0, 1.0, 1.0))
     return tuple(color.astype(int))
@@ -32,7 +30,6 @@ def mandelbrot(x,y):
 
 pg.init()
 canvas = pg.display.set_mode((width, height))
- patch-1
 update = 1
 
 
@@ -43,7 +40,7 @@ def reRender():
             color = mandelbrot((x - (0.75 * width)) / (width / 4), (y - (width / 4)) / (width / 4))
             canvas.set_at((x, y), color)
 reRender()
-master
+
 while True:
     ev = pg.event.poll()
     if ev.type == pg.QUIT:
